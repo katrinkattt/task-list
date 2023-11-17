@@ -1,8 +1,9 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {ReactNode} from 'react';
 import {StyleSheet, TextProps, TouchableOpacity, View} from 'react-native';
 import Body from './Body';
 
-interface IProps extends TextProps {
+interface IButton extends TextProps {
   bColor?: string;
   color?: string;
   text?: string;
@@ -11,14 +12,14 @@ interface IProps extends TextProps {
   loading?: boolean;
 }
 
-const Button: React.FC<IProps> = ({
+const Button = ({
   onPress,
   text,
-  color = '#ddd',
+  color = '#fff',
   bColor = '#f55',
   containerStyle,
   loading,
-}) => {
+}: IButton) => {
   return (
     <TouchableOpacity
       disabled={loading}

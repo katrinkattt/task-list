@@ -1,7 +1,7 @@
 import React, {ReactElement, ReactNode} from 'react';
-import {StyleSheet, Text, TextProps} from 'react-native';
+import {StyleSheet, Text, TextProps, useColorScheme} from 'react-native';
 
-interface IProps extends TextProps {
+interface IBody extends TextProps {
   children:
     | ReactNode
     | ReactElement
@@ -24,12 +24,12 @@ interface IProps extends TextProps {
   regular?: boolean;
 }
 
-const Body: React.FC<IProps> = ({
+const Body = ({
   size = 16,
   children,
   style,
   numberOfLines,
-  color = '#444',
+  color,
   center = false,
   opacity = 1,
   light = false,
@@ -40,15 +40,15 @@ const Body: React.FC<IProps> = ({
   right = false,
   regular = false,
   ...attributes
-}) => {
-  console.log('color', color);
-
+}: IBody) => {
+  const isDarkMode = useColorScheme() === 'dark';
+  const defaultColor = isDarkMode ? '#aaa' : '#111';
   return (
     <Text
       numberOfLines={numberOfLines}
       style={[
         styles.default,
-        {fontSize: size, color: color},
+        {fontSize: size, color: color ? color : defaultColor},
         center && styles.center,
         right && styles.right,
         bold && styles.bold,
