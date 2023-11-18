@@ -36,4 +36,5 @@ const persistConfig: PersistConfig<ITaskState> = {
   whitelist: [],
 };
 
+export const {addTask} = taskSlise.actions;
 export const taskReducer = persistReducer(persistConfig, taskSlise.reducer);

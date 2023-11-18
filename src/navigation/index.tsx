@@ -12,6 +12,7 @@ import IconTrash from '../components/icons/IconTrash';
 import {colors} from '../theme/colorTheme';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {NewTaskScreen} from '../pages/NewTaskScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,7 +22,7 @@ const TabStack = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color}) => {
+        tabBarIcon: ({color}) => {
           if (route.name === RoutesNames.TASKS) {
             return <IconHomeTask color={color} />;
           } else {
@@ -45,12 +46,12 @@ export const Navigator = () => {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      background: isDarkMode ? colors.black : colors.white,
+      background: isDarkMode ? colors.black : colors.ligther,
     },
   };
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : colors.accent,
+    backgroundColor: isDarkMode ? Colors.darker : colors.ligther,
   };
   return (
     <>
@@ -65,13 +66,8 @@ export const Navigator = () => {
             name={RoutesNames.TASKS}
             component={TabStack}
           />
-          <Stack.Screen
-            name={RoutesNames.ADD_TASK}
-            component={EditorTaskScreen}
-          />
           <Stack.Screen name={RoutesNames.EDIT} component={EditorTaskScreen} />
-          {/* <Stack.Screen name="EditorTaskScreen" component={EditorTaskScreen} />
-        <Stack.Screen name="TrashScreen" component={TrashScreen} /> */}
+          <Stack.Screen name={RoutesNames.ADD_TASK} component={NewTaskScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

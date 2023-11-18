@@ -25,6 +25,7 @@ export default memo(BackButton);
 
 const styles = StyleSheet.create({
   button: {
+    marginTop: -8,
     width: 34,
     height: 34,
     alignItems: 'center',
