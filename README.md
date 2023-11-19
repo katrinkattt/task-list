@@ -1,4 +1,19 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+главная страница - с отображением готовой задачи и задачи "в работе"
+main page - displaying a completed task and a task “in progress”
+[Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 11 28](https://github.com/katrinkattt/task-list/assets/52584077/cefca51a-7d92-4216-b1be-bf3472e8138a)
+
+![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 15 40](https://github.com/katrinkattt/task-list/assets/52584077/49ce1602-ec5d-4d07-b9a0-bad1cb2febc3)
+"загрузка" или обновление контента
+"downloading" or updating content
+![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 13 32](https://github.com/katrinkattt/task-list/assets/52584077/c281125a-af40-40a3-8820-fb157c089dc5)
+![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 15 18](https://github.com/katrinkattt/task-list/assets/52584077/0c6f8b9c-12b1-464b-820a-c2b4c47802e6)
+страница создания задачи 
+page creation task
+![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 25 07](https://github.com/katrinkattt/task-list/assets/52584077/04230e8c-739b-41a6-973e-0f1569e8828c)
+страница корзины - "в процесс очистки"
+![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 13 11](https://github.com/katrinkattt/task-list/assets/52584077/75743406-cb90-4cb2-a444-53decf5f44c6)
+
 
 # Getting Started
 
@@ -40,15 +55,6 @@ npm run ios
 
 # OR using Yarn
 yarn ios!
-[Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 11 28](https://github.com/katrinkattt/task-list/assets/52584077/cefca51a-7d92-4216-b1be-bf3472e8138a)
-![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 15 40](https://github.com/katrinkattt/task-list/assets/52584077/49ce1602-ec5d-4d07-b9a0-bad1cb2febc3)
-![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 13 32](https://github.com/katrinkattt/task-list/assets/52584077/c281125a-af40-40a3-8820-fb157c089dc5)
-![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 15 18](https://github.com/katrinkattt/task-list/assets/52584077/0c6f8b9c-12b1-464b-820a-c2b4c47802e6)
-![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 25 07](https://github.com/katrinkattt/task-list/assets/52584077/04230e8c-739b-41a6-973e-0f1569e8828c)
-
-
-
-
 
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
