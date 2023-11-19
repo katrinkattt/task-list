@@ -13,12 +13,14 @@ import {colors} from '../theme/colorTheme';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NewTaskScreen} from '../pages/NewTaskScreen';
+import {useAccentTheme} from '../theme/colorTheme';
 
 const Tab = createBottomTabNavigator();
 
 const AcentColor = colors.accent;
 
 const TabStack = () => {
+  const tabBgColor = useAccentTheme();
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
@@ -29,11 +31,29 @@ const TabStack = () => {
             return <IconTrash color={color} />;
           }
         },
+        tabBarStyle: {
+          height: 80,
+          backgroundColor: tabBgColor,
+        },
         tabBarActiveTintColor: AcentColor,
         tabBarInactiveTintColor: 'gray',
       })}>
-      <Tab.Screen name={RoutesNames.TASKS} component={TasksScreen} />
-      <Tab.Screen name={RoutesNames.TRASH} component={TrashScreen} />
+      <Tab.Screen
+        name={RoutesNames.TASKS}
+        component={TasksScreen}
+        options={{
+          headerStyle: {backgroundColor: tabBgColor},
+          headerTintColor: AcentColor,
+        }}
+      />
+      <Tab.Screen
+        name={RoutesNames.TRASH}
+        component={TrashScreen}
+        options={{
+          headerStyle: {backgroundColor: tabBgColor},
+          headerTintColor: AcentColor,
+        }}
+      />
     </Tab.Navigator>
   );
 };
@@ -41,24 +61,18 @@ const Stack = createStackNavigator();
 
 export const Navigator = () => {
   const isDarkMode = useColorScheme() === 'dark';
-
+  const tabBgColor = useAccentTheme();
   const theme = {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      background: isDarkMode ? colors.black : colors.ligther,
+      background: isDarkMode ? Colors.darker : colors.ligther,
     },
   };
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : colors.ligther,
-  };
   return (
     <>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <NavigationContainer theme={theme}>
         <Stack.Navigator>
           <Stack.Screen
@@ -66,8 +80,22 @@ export const Navigator = () => {
             name={RoutesNames.TASKS}
             component={TabStack}
           />
-          <Stack.Screen name={RoutesNames.EDIT} component={EditorTaskScreen} />
-          <Stack.Screen name={RoutesNames.ADD_TASK} component={NewTaskScreen} />
+          <Stack.Screen
+            name={RoutesNames.EDIT}
+            component={EditorTaskScreen}
+            options={{
+              headerStyle: {backgroundColor: tabBgColor},
+              headerTintColor: AcentColor,
+            }}
+          />
+          <Stack.Screen
+            name={RoutesNames.ADD_TASK}
+            component={NewTaskScreen}
+            options={{
+              headerStyle: {backgroundColor: tabBgColor},
+              headerTintColor: AcentColor,
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>

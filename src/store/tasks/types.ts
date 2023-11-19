@@ -1,9 +1,9 @@
 export type ITask = {
-  id?: number;
+  id: number;
   title?: string;
   description?: string;
-  dateStart?: string | Date;
-  dateEnd?: string | Date;
+  dateStart?: string | Date | undefined;
+  dateEnd?: string | Date | undefined;
   completly?: boolean;
 };
 

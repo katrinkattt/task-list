@@ -42,7 +42,13 @@ const Body = ({
   ...attributes
 }: IBody) => {
   const isDarkMode = useColorScheme() === 'dark';
-  const defaultColor = isDarkMode ? '#aaa' : '#111';
+  const defaultColor = isDarkMode
+    ? bold
+      ? '#fff'
+      : '#aaa'
+    : bold
+    ? '#000'
+    : '#111';
   return (
     <Text
       numberOfLines={numberOfLines}

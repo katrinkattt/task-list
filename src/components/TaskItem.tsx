@@ -1,27 +1,46 @@
 import React, {memo, useState} from 'react';
-import {View, StyleSheet, ViewStyle, TouchableOpacity} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ViewStyle,
+  TouchableOpacity,
+  useColorScheme,
+} from 'react-native';
+import moment from 'moment-with-locales-es6';
 import Body from '../components/Body';
 import {colors} from '../theme/colorTheme';
 import {ITask} from '../store/tasks/types';
-import moment from 'moment-with-locales-es6';
 import Button from './Button';
 
 interface ITaskItem {
   task: ITask;
   style?: ViewStyle;
   inTrash?: boolean;
+  comfirmReadyTask?: Function;
+  taskDelete?: Function;
 }
 
-const TaskItem = ({task, style, inTrash = false}: ITaskItem) => {
+const TaskItem = ({
+  task,
+  style,
+  inTrash = false,
+  comfirmReadyTask = () => {},
+  taskDelete = () => {},
+}: ITaskItem) => {
   moment.locale('ru');
   const [showItem, setShowItem] = useState(false);
+  const isDarkMode = useColorScheme() === 'dark';
+  const defaultBacground = isDarkMode ? colors.black : colors.ligthBorder;
 
   return (
     <TouchableOpacity onPress={() => setShowItem(!showItem)}>
-      <View style={[styles.taskItem, style]}>
+      <View
+        style={[styles.taskItem, style, {backgroundColor: defaultBacground}]}>
         <View style={styles.taskRow}>
           <View>
-            <Body size={26}>{task.title}</Body>
+            <Body size={26} bold>
+              {task.title}
+            </Body>
             <Body size={16}>
               {task?.completly ? 'Выполнена' : 'В процессе'}
             </Body>
@@ -49,19 +68,26 @@ const TaskItem = ({task, style, inTrash = false}: ITaskItem) => {
                   <Button text="Редактировать" bColor={colors.green} />
                 )}
                 <View style={styles.taskRow}>
-                  <Button text="Удалить" containerStyle={styles.buttonWidth} />
+                  <Button
+                    onPress={() => taskDelete(task)}
+                    text="Удалить"
+                    containerStyle={styles.buttonWidth}
+                  />
                   <Button
                     text={task?.completly ? 'Выполнена ☑' : 'Выполнена'}
+                    onPress={() => comfirmReadyTask(task)}
                     bColor={colors.green}
                     containerStyle={styles.buttonWidth}
                   />
                 </View>
               </View>
             ) : (
-              <Button
-                text="Удалить безвозвратно"
-                containerStyle={styles.buttonWidth}
-              />
+              <View style={styles.paddingT}>
+                <Button
+                  onPress={() => taskDelete(task)}
+                  text="Удалить безвозвратно"
+                />
+              </View>
             )}
           </View>
         )}
@@ -75,7 +101,6 @@ const styles = StyleSheet.create({
   taskItem: {
     padding: 10,
     borderRadius: 10,
-    backgroundColor: colors.ligthBorder,
     marginVertical: 8,
   },
   taskRow: {

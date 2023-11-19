@@ -1,23 +1,26 @@
 import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
-import Body from '../components/Body';
+import {useNavigation} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
+import moment from 'moment';
 import {Formik} from 'formik';
+import Body from '../components/Body';
 import {ITask} from '../store/tasks/types';
 import FormikInput from '../components/FormikInput';
 import Button from '../components/Button';
 import DatePicker from 'react-native-date-picker';
-import moment from 'moment';
-import {validator, required} from '../utils/validator';
-import {useDispatch, useSelector} from 'react-redux';
 
+import {validator, required} from '../utils/validator';
 import {addTask} from '../store/tasks/slice';
 import {getTasks} from '../store/tasks/selectors';
 
 export const NewTaskScreen = () => {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const tasksState = useSelector(getTasks);
   moment.locale('ru');
   const initialValues: ITask = {
+    id: 0,
     title: '',
     description: '',
   };
@@ -38,6 +41,7 @@ export const NewTaskScreen = () => {
       completly: false,
     };
     dispatch(addTask(newTask));
+    navigation.goBack();
     console.log('newTask', newTask);
   };
 
@@ -68,7 +72,7 @@ export const NewTaskScreen = () => {
 
               <View style={styles.dateRow}>
                 <View>
-                  <Body>Дата начала</Body>
+                  <Body bold>Дата начала</Body>
                   <Body>{moment(dateStart).format('LL')}</Body>
                 </View>
 
@@ -76,11 +80,11 @@ export const NewTaskScreen = () => {
               </View>
               <View style={styles.dateRow}>
                 <View>
-                  <Body>Дата завершения</Body>
+                  <Body bold>Дата завершения</Body>
                   <Body>{moment(dateEnd).format('LL')}</Body>
                 </View>
 
-                <Button text="Изменть" onPress={() => setOpenDate(true)} />
+                <Button text="Изменть" onPress={() => setOpenDateEnd(true)} />
               </View>
               <DatePicker
                 modal

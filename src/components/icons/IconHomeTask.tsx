@@ -5,7 +5,7 @@ interface IconHomeTaskProps {
   color?: string;
   height?: number;
 }
-const IconHomeTask = ({color = '#aaa', height = 30}: IconHomeTaskProps) => (
+const IconHomeTask = ({color = '#aaa', height = 50}: IconHomeTaskProps) => (
   <View>
     <Image
       style={[styles.icon, {tintColor: color, height: height}]}
