@@ -13,7 +13,6 @@ const App = (): JSX.Element => {
     import('./reactotron').then(() => console.log('Reactotron Configured'));
   }
   const isDarkMode = useColorScheme() === 'dark';
-  console.log(useColorScheme(), 'useColorScheme()dfvd');
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };

@@ -9,14 +9,6 @@ import {ITask, ITaskState} from './types';
 
 export const initialStateTask: ITaskState = {
   tasks: [],
-  newTask: {
-    id: 0,
-    title: '',
-    description: '',
-    dateStart: '',
-    dateEnd: '',
-    completly: false,
-  },
   trash: [],
 };
 
@@ -29,10 +21,21 @@ const taskSlise = createSlice({
       state.tasks.unshift(action.payload);
     },
     setReadyTask: (state, {payload}: PayloadAction<ITask>) => {
-      const selectedTodoId = payload.id;
-      state.tasks.find(todo => {
-        if (todo?.id === selectedTodoId) {
-          todo.completly = !todo.completly;
+      const selectedTaskId = payload.id;
+      state.tasks.find(task => {
+        if (task?.id === selectedTaskId) {
+          task.completly = !task.completly;
+        }
+      });
+    },
+    editTask: (state, {payload}: PayloadAction<ITask>) => {
+      const selectedTaskId = payload.id;
+      state.tasks.find(task => {
+        if (task?.id === selectedTaskId) {
+          task.title = payload.title;
+          task.description = payload.description;
+          task.dateStart = payload.dateStart;
+          task.dateEnd = payload.dateEnd;
         }
       });
     },
@@ -43,11 +46,14 @@ const taskSlise = createSlice({
       return state;
     },
     delTaskInTrash: (state, {payload}: PayloadAction<ITask>) => {
-      const taskId = payload.id;
-      return {
-        ...state,
-        trash: state.trash.filter(task => task.id === taskId),
-      };
+      const trashId = payload.id;
+      state.trash = state.trash.filter(tasks => tasks.id !== trashId);
+      return state;
+      // return {
+      //   ...state,
+      //   trash: state.trash.filter(task => task.id === taskId),
+      // };
+      // not stability
     },
     clearTrash: state => {
       return {...state, trash: []};
@@ -61,6 +67,12 @@ const persistConfig: PersistConfig<ITaskState> = {
   whitelist: [],
 };
 
-export const {addTask, setReadyTask, delTask, clearTrash, delTaskInTrash} =
-  taskSlise.actions;
+export const {
+  addTask,
+  setReadyTask,
+  editTask,
+  delTask,
+  clearTrash,
+  delTaskInTrash,
+} = taskSlise.actions;
 export const taskReducer = persistReducer(persistConfig, taskSlise.reducer);

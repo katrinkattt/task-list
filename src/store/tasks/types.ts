@@ -11,6 +11,5 @@ export type ITasks = ITask[];
 
 export type ITaskState = {
   tasks: ITasks;
-  newTask: ITask;
   trash: ITasks;
 };

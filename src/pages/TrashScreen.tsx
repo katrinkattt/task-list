@@ -9,7 +9,7 @@ import Body from '../components/Body';
 import {clearTrash, delTaskInTrash} from '../store/tasks/slice';
 import {ITask} from '../store/tasks/types';
 
-export const TrashScreen = () => {
+export const TrashScreen = (): JSX.Element => {
   const {trash} = useSelector(getTasks);
   const dispatch = useDispatch();
 

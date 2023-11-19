@@ -18,6 +18,7 @@ interface ITaskItem {
   inTrash?: boolean;
   comfirmReadyTask?: Function;
   taskDelete?: Function;
+  goToEditTask?: Function;
 }
 
 const TaskItem = ({
@@ -26,9 +27,10 @@ const TaskItem = ({
   inTrash = false,
   comfirmReadyTask = () => {},
   taskDelete = () => {},
+  goToEditTask = () => {},
 }: ITaskItem) => {
   moment.locale('ru');
-  const [showItem, setShowItem] = useState(false);
+  const [showItem, setShowItem] = useState<boolean>(false);
   const isDarkMode = useColorScheme() === 'dark';
   const defaultBacground = isDarkMode ? colors.black : colors.ligthBorder;
 
@@ -65,7 +67,11 @@ const TaskItem = ({
             {!inTrash ? (
               <View style={styles.paddingT}>
                 {!task?.completly && (
-                  <Button text="Редактировать" bColor={colors.green} />
+                  <Button
+                    onPress={() => goToEditTask(task)}
+                    text="Редактировать"
+                    bColor={colors.green}
+                  />
                 )}
                 <View style={styles.taskRow}>
                   <Button

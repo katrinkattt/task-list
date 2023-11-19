@@ -77,7 +77,7 @@ export const Navigator = () => {
         <Stack.Navigator>
           <Stack.Screen
             options={{headerShown: false}}
-            name={RoutesNames.TASKS}
+            name={RoutesNames.HOME}
             component={TabStack}
           />
           <Stack.Screen

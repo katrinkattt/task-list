@@ -1,5 +1,5 @@
 export enum RoutesNames {
-  TABS = 'Tabs',
+  HOME = 'Главная',
   TASKS = 'Задачи',
   EDIT = 'Редактировать задачу',
   ADD_TASK = 'Добавить задачу',

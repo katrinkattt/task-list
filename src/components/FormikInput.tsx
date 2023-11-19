@@ -44,7 +44,7 @@ const FormikInput: React.FC<IProps> = ({
   numberOfLines = 1,
   ...attributes
 }) => {
-  const [leftFocus, setLeftFocus] = useState(false);
+  const [leftFocus, setLeftFocus] = useState<boolean>(false);
   const [field, meta, helpers] = useField({name, validate});
   const {submitCount} = useFormikContext();
 
@@ -57,11 +57,14 @@ const FormikInput: React.FC<IProps> = ({
     setLeftFocus(false);
   }, []);
 
-  const onChangeText = useCallback(async (value: string) => {
-    if (!visual) {
-      helpers.setValue(value);
-    }
-  }, []);
+  const onChangeText = useCallback(
+    async (value: string) => {
+      if (!visual) {
+        helpers.setValue(value);
+      }
+    },
+    [helpers, visual],
+  );
 
   const showError = (submitCount || leftFocus) && meta.error && !hideError;
 
