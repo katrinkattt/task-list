@@ -1,18 +1,19 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
-главная страница - с отображением готовой задачи и задачи "в работе"
+# Task List
+Главная страница - с отображением готовой задачи и задачи "в работе"
 main page - displaying a completed task and a task “in progress”
-[Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 11 28](https://github.com/katrinkattt/task-list/assets/52584077/cefca51a-7d92-4216-b1be-bf3472e8138a)
+![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 15 40](https://github.com/katrinkattt/task-list/assets/52584077/bf03297f-f567-4e5e-b5ed-fa6cf6eaca27)
+![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 11 28](https://github.com/katrinkattt/task-list/assets/52584077/ca40c589-730c-4b37-a8b0-0d17597ef2d5)
 
-![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 15 40](https://github.com/katrinkattt/task-list/assets/52584077/49ce1602-ec5d-4d07-b9a0-bad1cb2febc3)
 "загрузка" или обновление контента
 "downloading" or updating content
-![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 13 32](https://github.com/katrinkattt/task-list/assets/52584077/c281125a-af40-40a3-8820-fb157c089dc5)
-![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 15 18](https://github.com/katrinkattt/task-list/assets/52584077/0c6f8b9c-12b1-464b-820a-c2b4c47802e6)
+![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 13 32](https://github.com/katrinkattt/task-list/assets/52584077/d7868472-885e-47e2-95a2-7169064a1e7a)
 страница создания задачи 
 page creation task
-![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 25 07](https://github.com/katrinkattt/task-list/assets/52584077/04230e8c-739b-41a6-973e-0f1569e8828c)
+![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 25 07](https://github.com/katrinkattt/task-list/assets/52584077/a2ddb92e-4c63-40f9-87e2-cbaaca461f85)
+страница корзины 
+![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 12 49](https://github.com/katrinkattt/task-list/assets/52584077/d3590dbf-0a0f-4a86-8765-af8b9192ce9f)
 страница корзины - "в процесс очистки"
-![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 13 11](https://github.com/katrinkattt/task-list/assets/52584077/75743406-cb90-4cb2-a444-53decf5f44c6)
+![Simulator Screenshot - iPhone 15 Pro Max - 2023-11-20 at 03 13 11](https://github.com/katrinkattt/task-list/assets/52584077/9d665741-ef7d-4df1-bff6-124c91bc4494)
 
 
 # Getting Started
